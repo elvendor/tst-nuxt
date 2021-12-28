@@ -33,9 +33,8 @@ export default {
   async asyncData(context) {
     try {
       const { data } = await context.app.$axios.get(
-        `http://api.test/b2c/tours/search?page=${context.params.page}`
+        `https://api.travelshopbooking.com/b2c/tours/search?page=${context.params.page}`
       )
-      console.log(data)
       return { tours: data.data }
     } catch (e) {
       context.error(e)
