@@ -27,6 +27,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxt/image'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,6 +57,10 @@ export default {
   sitemap: {
     hostname: 'http://localhost:3000',
     gzip: true,
+  },
+
+  image: {
+    domains: ['https://api.travelshopbooking.com']
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

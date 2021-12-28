@@ -1,7 +1,13 @@
 <template>
   <div>
     <h1>{{ data.name }}</h1>
-    <img :src="data.images[0].high" />
+    <nuxt-picture
+      :src="data.images[0].high"
+      sizes="sm:100vw md:50vw lg:400px"
+      format="webp"
+      quality="60"
+      :modifiers="{ roundCorner: '0:30' }"
+    />
   </div>
 </template>
 
