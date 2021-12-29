@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen">
-    <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+    <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto hover:shadow">
         <a href="#" class="w-full block h-full">
             <nuxt-picture
               :src="tour.images[0].high"
@@ -31,6 +31,18 @@
         `https://api.travelshopbooking.com/b2c/tours/${context.params.slug}`
       )
       return { tour: data }
+    },
+    head() {
+      return {
+        title: this.tour.name,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.tour.meta_description
+          }
+        ]
+      }
     }
   }
 </script>

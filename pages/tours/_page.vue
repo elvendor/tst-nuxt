@@ -42,7 +42,6 @@
 </template>
 <script>
 export default {
-  name: 'IndexPage',
   async asyncData(context) {
     try {
       const { data } = await context.app.$axios.get(
