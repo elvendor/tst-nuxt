@@ -58,7 +58,7 @@ export default {
   },
 
   sitemap: {
-    hostname: 'http://localhost:3000',
+    hostname: 'https://nuxt.travelshopbooking.com',
     gzip: true,
   },
 
@@ -103,6 +103,7 @@ export default {
   content: {},
 
   router: {
+    prefetchPayloads: true,
     trailingSlash: false
   },
 
