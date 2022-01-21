@@ -32,12 +32,12 @@
         </li>
     </ul>
 </div>
-
     <NuxtLink :to="`/tours/1`">1</NuxtLink>
     <NuxtLink :to="`/tours/2`">2</NuxtLink>
     <NuxtLink :to="`/tours/3`">3</NuxtLink>
     <NuxtLink :to="`/tours/4`">4</NuxtLink>
     <NuxtLink :to="`/tours/5`">5</NuxtLink>
+    <a-pagination :default-current="currentPage" :total="total" @change="paginate" />
   </div>
 </template>
 <script>
@@ -47,9 +47,18 @@ export default {
       const { data } = await context.app.$axios.get(
         `https://api.travelshopbooking.com/b2c/tours/search?page=${context.params.page}`
       )
-      return { tours: data.data }
+      return {
+        tours: data.data,
+        total: data.meta.total,
+        currentPage: Number(context.params.page)
+      }
     } catch (e) {
       context.error(e)
+    }
+  },
+  methods: {
+    paginate(page) {
+      this.$router.push({ path: `/tours/${page}` })
     }
   }
 }
