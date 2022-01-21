@@ -104,7 +104,7 @@ export default {
 
   router: {
     prefetchPayloads: true,
-    trailingSlash: false
+    trailingSlash: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

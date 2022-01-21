@@ -31,7 +31,11 @@
         </li>
       </ul>
     </div>
-    <a-pagination :default-current="currentPage" :total="total" @change="paginate" />
+    <a-pagination
+      :default-current="currentPage"
+      :total="total"
+      @change="paginate"
+    />
   </div>
 </template>
 <script>
@@ -39,12 +43,12 @@ export default {
   async asyncData(context) {
     try {
       const { data } = await context.app.$axios.get(
-      `https://api.travelshopbooking.com/b2c/tours/search?page=${context.params.page}`
+        `https://api.travelshopbooking.com/b2c/tours/search?page=${context.params.page}`
       )
       return {
-      tours: data.data,
-      total: data.meta.total,
-      currentPage: Number(context.params.page)
+        tours: data.data,
+        total: data.meta.total,
+        currentPage: Number(context.params.page)
       }
     } catch (e) {
       context.error(e)
